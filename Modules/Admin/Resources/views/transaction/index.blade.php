@@ -49,7 +49,7 @@
 					</td>
 					<td>
 						<a style="padding: 7px; border: 1px solid #999; font-size: 12px" href="{{ route('admin.get.view.order', $transaction->id) }}" class="js_order_item" data-id="{{ $transaction->id }}" ><i class="fa fa-pencil">Xem</i></a>
-						<a style="padding: 7px; border: 1px solid #999; font-size: 12px" href="" ><i class="fa fa-pencil">Xóa</i></a>
+						<a style="padding: 7px; border: 1px solid #999; font-size: 12px" href="{{ route('admin.get.delete.transaction',$transaction->id) }}" ><i class="fa fa-pencil">Xóa</i></a>
 					</td>
 				</tr>
 				@endforeach

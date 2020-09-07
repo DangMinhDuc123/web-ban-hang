@@ -22,8 +22,10 @@ class AdminController extends Controller
     {
         $transactions = DB::table('transactions')
                         ->join('users', 'users.id' , '=','transactions.tr_user_id')
-                        ->select('users.name','transactions.tr_address','transactions.tr_phone','transactions.tr_total','transactions.tr_status','transactions.id','transactions.tr_note')
-                        ->limit(5)->get();
+                        ->select('users.name','transactions.tr_address','transactions.tr_phone','transactions.tr_total','transactions.tr_status','transactions.id','transactions.tr_note','transactions.tr_user_id')
+                        ->limit(5)
+                        ->orderBy('transactions.tr_user_id','DESC')
+                        ->get();
         return view('admin::index',compact('transactions'));
     }
 

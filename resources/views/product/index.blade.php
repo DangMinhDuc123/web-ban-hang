@@ -12,7 +12,7 @@
 				<div class="container-inner">
 					<ul>
 						<li class="home">
-							<a href="index.html">Trang Chủ</a>
+							<a href="{{ route('home') }}">Trang Chủ</a>
 							<span><i class="fa fa-angle-right"></i></span>
 						</li>
 						<li class="category3"><span>{{ $cateProduct->c_name }}</span></li>

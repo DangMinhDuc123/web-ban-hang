@@ -13,8 +13,8 @@
         				<div class="mainmenu">
         					<nav>
         						<ul>
-        							<li class="expand"><a href="index.html">Home</a></li>
-        							<li class="expand"><a href="about-us.html">Sản Phẩm</a>
+        							<li class="expand"><a href="{{ route('home') }}">Home</a></li>
+        							<li class="expand"><a href="#">Sản Phẩm</a>
                                         <ul class="restrain sub-menu">
                                             @if(isset($categories))
                                             @foreach($categories as $cate)
@@ -23,10 +23,10 @@
                                             @endif
                                         </ul>
                                     </li>
-        							<li class="expand"><a href="contact-us.html">Tin Tức</a></li>
-                                    <li class="expand"><a href="contact-us.html">Giới Thiệu</a></li>
-                                    <li class="expand"><a href="contact-us.html">Liên Hệ</a></li>
-                                    <li class="expand"><a href="contact-us.html">Contact</a></li>
+        							<li class="expand"><a href="#">Tin Tức</a></li>
+                                    <li class="expand"><a href="#">Giới Thiệu</a></li>
+                                    <li class="expand"><a href="#">Liên Hệ</a></li>
+                                    <li class="expand"><a href="#">Contact</a></li>
         						</ul>
         					</nav>
         				</div>
@@ -75,10 +75,10 @@
         						<div class="circle-shopping expand">
         							<div class="shopping-carts text-right">
         								<div class="cart-toggler">
-        									<a href="r{{ route('get.list.shopping.cart') }}"><i class="icon-bag"></i></a>
+        									<a href="{{ route('get.list.shopping.cart') }}"><i class="icon-bag"></i></a>
         									<a href="{{ route('get.list.shopping.cart') }}"><span class="cart-quantity">{{ Cart::count() }}</span></a>
         								</div>
-        								<div class="restrain small-cart-content">
+        								{{-- <div class="restrain small-cart-content">
         									<ul class="cart-list">
         										<li>
         											<a class="sm-cart-product" href="product-details.html">
@@ -107,7 +107,7 @@
         									<p class="buttons">
         										<a href="checkout.html" class="button">Checkout</a>
         									</p>
-        								</div>
+        								</div> --}}
         							</div>
         						</div>
         					</div>
@@ -136,9 +136,9 @@
         							<a href="#"><i class="fa fa-align-right"></i></a>
         							<ul class="restrain language" style="width: 200px">
                                         @if(Auth::check())
-        								<li><a href="login.html">Tài Khoản</a></li>
-        								<li><a href="cart.html">Giỏ Hàng</a></li>
-        								<li><a href="checkout.html">Thanh Toán</a></li>
+        								<li><a href="#">Tài Khoản</a></li>
+        								<li><a href="{{ route('get.list.shopping.cart') }}">Giỏ Hàng</a></li>
+        								<li><a href="{{ route('get.form.pay') }}">Thanh Toán</a></li>
         								<li><a href="{{ route('get.logout') }}">Đăng Xuất</a></li>
                                         @else
                                         <li><a href="{{ route('get.register') }}">Đăng Ký</a></li>

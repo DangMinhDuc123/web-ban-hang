@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 Route::group(['namespace' => 'Auth'],function(){
 	Route::get('dang-ky','RegisterController@getRegister')->name('get.register');

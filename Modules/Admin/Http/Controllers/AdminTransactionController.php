@@ -19,7 +19,8 @@ class AdminTransactionController extends Controller
 	{
 		$transactions = DB::table('transactions')
 						->join('users', 'users.id' , '=','transactions.tr_user_id')
-						->select('users.name','transactions.tr_address','transactions.tr_phone','transactions.tr_total','transactions.tr_status','transactions.id')
+						->select('users.name','transactions.tr_address','transactions.tr_phone','transactions.tr_total','transactions.tr_status','transactions.id','transactions.tr_user_id')
+						->orderBy('transactions.tr_user_id','DESC')
 						->get();
 		return view('admin::transaction.index',compact('transactions'));
 	}
@@ -32,6 +33,12 @@ class AdminTransactionController extends Controller
 			$html = view('admin::components.order',compact('orders'))->render();
 			return \response()->json($html);
 		}
+	}
+
+	public function delete(Request $request,$id){
+		$transactions =  Transaction::find($id);
+		$transactions->delete();
+		return back();
 	}
 
 	public function activeOrder($id){
